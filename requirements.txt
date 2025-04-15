@@ -1,0 +1,6 @@
+pydantic>=2.11.0
+kagglehub>=0.3.11
+ipykernel>=6.29.5
+sqlalchemy>=2.0.40
+pandas>=2.2.3
+openai>=1.74.0

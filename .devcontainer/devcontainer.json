@@ -1,0 +1,27 @@
+{
+	"name": "Python 3",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"shyykoserhiy.git-autoconfig",
+				"ms-toolsai.jupyter",
+				"ms-python.python",
+				"ms-python.debugpy"
+			]
+		}
+	},
+
+	"remoteEnv": {
+		"PYTHONPATH": "${containerWorkspaceFolder}/src"
+	},
+
+	"runArgs": [
+		"--env-file",
+		".devcontainer/devcontainer.env"
+	]
+}
