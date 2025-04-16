@@ -18,7 +18,6 @@ Always follow the following rules:
 - Only include line breaks before FROM, WHERE, GROUP BY, ORDER BY and HAVING.
 - Make queries return the answer in the first column and always call it 'result'.
 - For queries that need to return a value of type REAL, round it to two decimal points.
-- Always prefix column names with table names for readability.
 - When producing a query returning a count, always create a subquery with relevant rows first.
 - Carefully account for NULL values in queries where they are possible.
 

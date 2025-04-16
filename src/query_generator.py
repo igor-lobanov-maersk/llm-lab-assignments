@@ -13,9 +13,9 @@ class Query(BaseModel):
     """
     success: bool = Field(description="Whether the question was clear and unambiguous and the query was generated successfully")
     reasoningSteps: list[str] = Field(description="Reasoning steps that lead to the query")
-    sqlQuery: str | None = Field(description="SQL query to execute starting with SELECT or null if the question is ambiguous or impossible to answer using the given schema")
-    declineReason: str | None = Field(description="Reason why the question is ambiguous, or impossible to answer")
+    declineReason: str | None = Field(description="If the question was ambiguous or impossible to answer, here will be the reason of the decline")
     alternativeQuestions: list[str] = Field(description="If the question was ambiguous, provide alternative questions that are clear and possible to answer")
+    sqlQuery: str | None = Field(description="SQL query to execute starting with SELECT or null if the question is ambiguous or impossible to answer using the given schema")
 
 # this could have been generated from the schema, but foreign keys are not there
 relationships = {
@@ -115,22 +115,13 @@ class QueryGenerator:
 
         return Query.model_validate_json(completion.choices[0].message.content)
 
-    def generate_query(self, question: str) -> pd.DataFrame:
-        completion = self.client.chat.completions.create(
-            model="gpt-4.1",
-            store=False,
-            messages=[
-                {"role": "developer", "content": self.prompt},
-                {"role": "user", "content": question}
-            ],
-            max_tokens=1000,
-        )
-
-        query = completion.choices[0].message.content
-        return query
-
     def make_query(self, question: str) -> pd.DataFrame:
-        query = self.generate_query(question)
+        response = self.generate_structured_response(question)
+        if not response.success:
+            print(f"Decline reasoning:\n{"\n".join(response.reasoningSteps)}")
+            raise Exception(response.declineReason)
+        
+        query = response.sqlQuery
 
         # remove Markdown
         if query.startswith("```sql"):
@@ -139,4 +130,5 @@ class QueryGenerator:
             query = query[:-len("```")]
 
         print(f"Query: {query}")
+        print(f"Reasoning steps:\n{"\n".join(response.reasoningSteps)}")
         return pd.read_sql_query(query, self.engine)
