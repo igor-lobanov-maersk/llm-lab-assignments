@@ -93,7 +93,7 @@ class QueryGenerator:
 
     def make_query(self, question: str) -> pd.DataFrame:
         completion = self.client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4.1",
             store=False,
             messages=[
                 {"role": "developer", "content": self.prompt},
