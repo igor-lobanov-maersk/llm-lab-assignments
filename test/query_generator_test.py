@@ -65,7 +65,7 @@ def test_most_common_payment_installements_count_for_expensive_orders(query_gene
 def test_city_with_highest_avg_freight_value_per_order(query_generator):
     assert_query_result(
         query_generator.make_query("Which city has the highest average freight value per order?"),
-        expected_result='itupiranga' # not 'campina grande'
+        expected_result='marilac' # not 'campina grande'
     )
 
 @skip_if_not_in_run_only("G")

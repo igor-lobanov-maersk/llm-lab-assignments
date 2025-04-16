@@ -20,6 +20,7 @@ Always follow the following rules:
 - For queries that need to return a value of type REAL, round it to two decimal points.
 - When producing a query returning a count, always create a subquery with relevant rows first.
 - Carefully account for NULL values in queries where they are possible.
+- When using subqueries, give them aliases and always prefix column names with the aliases for clarity. If more than one subquery is used, pay extra attention to correctly use aliases.
 
 Use the following hints to better understand questions:
 - Questions about product category names should return names from `product_category_name` column of `products` table, unless explicitly asked for an translation.
