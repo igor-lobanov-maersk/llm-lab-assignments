@@ -11,7 +11,9 @@
 				"shyykoserhiy.git-autoconfig",
 				"ms-toolsai.jupyter",
 				"ms-python.python",
-				"ms-python.debugpy"
+				"ms-python.debugpy",
+				"ms-toolsai.vscode-jupyter-cell-tags",
+				"ms-toolsai.jupyter-renderers"
 			]
 		}
 	},
