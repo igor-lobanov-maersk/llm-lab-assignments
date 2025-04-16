@@ -4,9 +4,11 @@ Reproducible working environment is provided via VSCode Dev Containers. When cre
 
 To download the dataset, use [the sandbox Jupyter notebook](./sandbox.ipynb), then copy the source SQLite database file into `.data/olist.sqlite`.
 
-Currently there is a solution for [assignment #1](https://github.com/dmitry-buykin/llm-lab-katas/blob/main/1-entry-assignment.md) with all tests passing most of the time. This code is tagged as [assignment-1](https://github.com/igor-lobanov-maersk/llm-lab-assignments/tree/assignment-1)
+Solution for [assignment #1](https://github.com/dmitry-buykin/llm-lab-katas/blob/main/1-entry-assignment.md) with all tests passing most of the time is tagged as [assignment-1](https://github.com/igor-lobanov-maersk/llm-lab-assignments/tree/assignment-1).
 
-<img src="misc/tests.jpeg" width="800px">
+Currently, there is code for the "structured output" part of [assignment #2](https://github.com/dmitry-buykin/llm-lab-katas/blob/main/2-structured-output.md). Due to a change in the model to `gpt-4o` one test is now consistently failing. I will make more tweaks to the prompt as I progress with the assignment.
+
+<img src="misc/tests.png" width="800px">
 
 ## Instructions
 
