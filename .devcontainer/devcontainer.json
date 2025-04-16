@@ -17,7 +17,8 @@
 	},
 
 	"remoteEnv": {
-		"PYTHONPATH": "${containerWorkspaceFolder}/src"
+		"PYTHONPATH": "${containerWorkspaceFolder}/src",
+		"PYTHONCOMPILED": "0"
 	},
 
 	"runArgs": [
