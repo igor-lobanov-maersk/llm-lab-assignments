@@ -4,7 +4,7 @@ Reproducible working environment is provided via VSCode Dev Containers. When cre
 
 To download the dataset, use [the sandbox Jupyter notebook](./sandbox.ipynb), then copy the source SQLite database file into `.data/olist.sqlite`.
 
-Currently there is a solution for assignment #1 with all tests passing.
+Currently there is a solution for [assignment #1](https://github.com/dmitry-buykin/llm-lab-katas/blob/main/1-entry-assignment.md) with all tests passing most of the time. This code is tagged as [assignment-1](https://github.com/igor-lobanov-maersk/llm-lab-assignments/tree/assignment-1)
 
 <img src="misc/tests.jpeg" width="800px">
 
